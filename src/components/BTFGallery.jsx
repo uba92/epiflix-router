@@ -8,6 +8,7 @@ const BTFGallery = (props) => {
       {props.filmList.slice(0, 6).map((singleFilm) => {
         return (
           <Col
+            key={singleFilm.imdbID}
             className='scale'
             style={{ height: '200px' }}
             sm={12}
@@ -15,7 +16,7 @@ const BTFGallery = (props) => {
             lg={2}
           >
             <Link to={'/movie-details/' + singleFilm.Title}>
-              <SingleCard key={singleFilm.imdbID} film={singleFilm} />
+              <SingleCard film={singleFilm} />
             </Link>
           </Col>
         )

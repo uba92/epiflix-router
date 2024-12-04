@@ -4,12 +4,12 @@ import { Col, Row, Card } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 
 const MovieDetails = () => {
-  const [films, setFilm] = useState([])
+  const [films, setFilm] = useState({})
   const params = useParams()
   console.log('params', params)
 
   const getFilm = () => {
-    fetch('http://www.omdbapi.com/?apikey=ebbddf84&s=' + params.movieTitle)
+    fetch('http://www.omdbapi.com/?apikey=ebbddf84&i=' + params.movieId)
       .then((response) => {
         if (response.ok) {
           return response.json()
@@ -18,9 +18,9 @@ const MovieDetails = () => {
         }
       })
       .then((data) => {
-        console.log(data)
-        console.log('works')
-        setFilm(data.Search)
+        console.log(data.Title)
+        console.log('It Works')
+        setFilm({ ...data })
       })
       .catch((err) => {
         console.log('error', err)
@@ -28,24 +28,23 @@ const MovieDetails = () => {
   }
 
   //   const filmToShow = films.find((film) => {
-  //     return film.Title === params.Title
+  //     return film.imdbId === params.imdbId
   //   })
+  //   console.log('film da mostrare', filmToShow)
   useEffect(() => {
     getFilm()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  console.log('vediamo', films)
   return (
     <Row className='justify-content-center'>
       <Col xs={12} md={8} lg={6}>
-        {films[0] && (
-          <Card>
-            <Card.Img variant='top' src={films[0].Poster} />
+        {films && (
+          <Card className='h-100'>
+            <Card.Img variant='top' src={films.Poster} className='h-75' />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
+              <Card.Title>{films.Title}</Card.Title>
+              <Card.Text>{films.Plot}</Card.Text>
             </Card.Body>
           </Card>
         )}

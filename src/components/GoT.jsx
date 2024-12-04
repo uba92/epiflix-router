@@ -32,7 +32,7 @@ const GoT = () => {
       {gotShows.map((show) => {
         return (
           <Col key={show.imdbID} sm={12} md={6} lg={4}>
-            <Link to={'/movie-details/' + show.Title}>
+            <Link to={'/movie-details/' + show.imdbID}>
               <Card className='h-75 overflow-hidden'>
                 <Card.Img variant='top' src={show.Poster} />
               </Card>
