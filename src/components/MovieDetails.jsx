@@ -34,7 +34,7 @@ const MovieDetails = () => {
   useEffect(() => {
     getFilm()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [params.movieId])
   console.log('vediamo', films)
   return (
     <Row className='justify-content-center'>
