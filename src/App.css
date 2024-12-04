@@ -40,3 +40,7 @@
 .footer-icon {
   color: #838383;
 }
+
+.scale {
+  transform: scale(1.05);
+}

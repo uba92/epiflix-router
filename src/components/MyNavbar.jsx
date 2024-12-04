@@ -2,15 +2,28 @@ import { Container, Navbar, Nav } from 'react-bootstrap'
 import logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
 
 const MyNavbar = (props) => {
+  const [active, setActive] = useState(false)
+
+  const toggleMouse = () => {
+    setActive(!active)
+  }
   const location = useLocation()
   console.log(location)
   return (
     <Navbar expand='lg' data-bs-theme='dark' bg='dark'>
       <Container fluid={props.isFluid}>
         <Link to='/' className='navbar-brand'>
-          <img src={logo} alt='logo' width={'100px'} />
+          <img
+            src={logo}
+            alt='logo'
+            width={'100px'}
+            onMouseEnter={toggleMouse}
+            onMouseLeave={toggleMouse}
+            className={active ? 'scale' : ''}
+          />
         </Link>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>

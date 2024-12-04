@@ -63,14 +63,14 @@ const MyGallery = () => {
       .then((arrayOfFilms) => {
         console.log(arrayOfFilms)
 
-        setIsLoading(false)
         setThirdSaga(arrayOfFilms.Search)
+        setIsLoading(false)
       })
       .catch((error) => {
         console.log('error', error)
 
-        setIsError(true)
         setIsLoading(false)
+        setIsError(true)
       })
   }
 
@@ -90,11 +90,9 @@ const MyGallery = () => {
     <>
       <div className='my-5 '>
         <h3>LOTR Saga</h3>
-        {isError &&
-          firstSaga.length ===
-            0(
-              <Alert variant='danger'>Oops! Qualcosa è andato storto!😭</Alert>
-            )}
+        {isError && (
+          <Alert variant='danger'>Oops! Qualcosa è andato storto!😭</Alert>
+        )}
         {isLoading && <Spinner animation='grow' />}
         {!isLoading && !isError && firstSaga.length === 0 && (
           <ListGroup>
