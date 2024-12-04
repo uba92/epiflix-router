@@ -33,13 +33,13 @@ const MyNavbar = (props) => {
             >
               <div>Tv Shows</div>
             </Link>
-            <Link className='nav-link'>
+            <Link to='/movies' className='nav-link'>
               <div>Movies</div>
             </Link>
-            <Link className='nav-link'>
+            <Link to='/recent' className='nav-link'>
               <div>Recently Added</div>
             </Link>
-            <Link className='nav-link'>
+            <Link to='list' className='nav-link'>
               <div>My List</div>
             </Link>
           </Nav>

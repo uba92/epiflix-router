@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Row, Col, Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const GoT = () => {
   const [gotShows, setGotShows] = useState([])
@@ -31,9 +32,11 @@ const GoT = () => {
       {gotShows.map((show) => {
         return (
           <Col key={show.imdbID} sm={12} md={6} lg={4}>
-            <Card className='h-75 overflow-hidden'>
-              <Card.Img variant='top' src={show.Poster} />
-            </Card>
+            <Link to={'/movie-details/' + show.Title}>
+              <Card className='h-75 overflow-hidden'>
+                <Card.Img variant='top' src={show.Poster} />
+              </Card>
+            </Link>
           </Col>
         )
       })}

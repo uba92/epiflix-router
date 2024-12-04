@@ -8,6 +8,7 @@ import MyFooter from './components/MyFooter'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import GoT from './components/GoT'
 import NotFound from './components/NotFound'
+import MovieDetails from './components/MovieDetails'
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
                 }
               />
               <Route path='/tv-shows' element={<GoT />} />
+              <Route
+                path='/movie-details/:movieId'
+                element={<MovieDetails />}
+              />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </Container>
