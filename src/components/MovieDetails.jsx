@@ -9,7 +9,7 @@ const MovieDetails = () => {
   console.log('params', params)
 
   const getFilm = () => {
-    fetch('http://www.omdbapi.com/?apikey=ebbddf84&s=' + params.movieId)
+    fetch('http://www.omdbapi.com/?apikey=ebbddf84&s=' + params.movieTitle)
       .then((response) => {
         if (response.ok) {
           return response.json()
@@ -37,16 +37,18 @@ const MovieDetails = () => {
   return (
     <Row className='justify-content-center'>
       <Col xs={12} md={8} lg={6}>
-        <Card>
-          <Card.Img variant='top' src={films[0].Poster} />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        {films[0] && (
+          <Card>
+            <Card.Img variant='top' src={films[0].Poster} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        )}
       </Col>
     </Row>
   )

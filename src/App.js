@@ -31,7 +31,7 @@ function App() {
               />
               <Route path='/tv-shows' element={<GoT />} />
               <Route
-                path='/movie-details/:movieId'
+                path='/movie-details/:movieTitle'
                 element={<MovieDetails />}
               />
               <Route path='*' element={<NotFound />} />
