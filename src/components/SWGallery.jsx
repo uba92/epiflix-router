@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const SWGallery = (props) => {
   return (
-    <Row className='g-3'>
+    <Row className='g-3 p-3'>
       {props.filmList.map((singleFilm) => {
         return (
           <Col

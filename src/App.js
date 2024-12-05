@@ -9,15 +9,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import GoT from './components/GoT'
 import NotFound from './components/NotFound'
 import MovieDetails from './components/MovieDetails'
+import SearchPage from './components/SearchPage'
 
 function App() {
   return (
     <BrowserRouter>
-      <div className='App bg-dark text-light'>
+      <div className='d-flex flex-column min-vh-100'>
         <header>
           <MyNavbar logoPath={'./assets/images/logo.png'} isFluid={true} />
         </header>
-        <main className='bg-dark text-light'>
+        <main className='bg-dark text-light flex-grow-1'>
           <Container fluid>
             <Routes>
               <Route
@@ -29,6 +30,7 @@ function App() {
                   </>
                 }
               />
+              <Route path='/search' element={<SearchPage />} />
               <Route path='/tv-shows' element={<GoT />} />
               <Route
                 path='/movie-details/:movieId'
@@ -38,7 +40,7 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer className='bg-dark text-light'>
+        <footer className='bg-dark text-light pt-5 mt-auto'>
           <MyFooter />
         </footer>
       </div>

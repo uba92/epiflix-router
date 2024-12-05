@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Col, Row, Card, Spinner, Alert } from 'react-bootstrap'
+import { Col, Row, Card, Spinner, Alert, Button } from 'react-bootstrap'
 
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const MovieDetails = () => {
   const [films, setFilm] = useState({})
@@ -39,9 +39,15 @@ const MovieDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.movieId])
   console.log(films)
+
+  const navigate = useNavigate()
+
+  const goHome = () => {
+    navigate('/')
+  }
   return (
     <Row className='justify-content-center'>
-      <Col xs={12} md={8} lg={6}>
+      <Col xs={12} md={8} lg={3}>
         {isError && (
           <Alert variant='danger'>Oops! Qualcosa è andato storto!😭</Alert>
         )}
@@ -57,6 +63,10 @@ const MovieDetails = () => {
             <Card.Body>
               <Card.Title>{films.Title}</Card.Title>
               <Card.Text>{films.Plot}</Card.Text>
+
+              <Button variant='primary' onClick={goHome}>
+                Torna alla Home
+              </Button>
             </Card.Body>
           </Card>
         )}

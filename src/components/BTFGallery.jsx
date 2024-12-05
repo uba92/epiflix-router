@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const BTFGallery = (props) => {
   return (
-    <Row className='g-3'>
+    <Row className='g-3 p-3'>
       {props.filmList.slice(0, 6).map((singleFilm) => {
         return (
           <Col
